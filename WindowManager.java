@@ -3,15 +3,16 @@ import java.awt.*;
 
 public class WindowManager extends JPanel {
     private JFrame frame;
-    public Scene2d scene2d; // Assuming Scene2d is a class you have defined elsewhere
-
+    private Scene2d scene2d; // Assuming Scene2d is a class you have defined elsewhere
+    public MyGraphics graphics;
     // Constructor to create the window
     public WindowManager(String title, int width, int height) {
-        frame = new JFrame(title);
-        frame.setSize(width, height);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(this); // Add this JPanel to the JFrame
-        frame.setVisible(true);
+        this.frame = new JFrame(title);
+        this.frame.setSize(width, height);
+        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.frame.add(this); // Add this JPanel to the JFrame
+        this.frame.setVisible(true);
+        this.graphics = new MyGraphics(this);
     }
 
     // Override paintComponent to draw on the panel
@@ -19,7 +20,11 @@ public class WindowManager extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); // Call the superclass method to ensure proper rendering
         if (scene2d != null) {
-            scene2d.tick(); // Call the tick method of Scene2d to draw objects
+            this.scene2d.tick(); // Call the tick method of Scene2d to draw objects
         }
+    }
+
+    public void setScene(Scene2d scene){
+        this.scene2d = scene;
     }
 }

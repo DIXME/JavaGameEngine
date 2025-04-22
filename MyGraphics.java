@@ -5,8 +5,8 @@ public class MyGraphics {
     WindowManager windowManager;
     Graphics graphics;
     
-    public MyGraphics(String title, int width, int height) {
-        this.windowManager = new WindowManager(title, width, height);
+    public MyGraphics(WindowManager wm) {
+        this.windowManager = wm;
         this.graphics = windowManager.getGraphics(); // Get the graphics context from the window manager
     }
 
