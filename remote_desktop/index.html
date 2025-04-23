@@ -1,0 +1,30 @@
+<script src="/socket.io/socket.io.js"></script>
+<img id="stream">
+<style>
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+  img {
+    width: 100vw;
+    height: 100vh;
+  }
+</style>
+<script>
+  const socket = io();
+  socket.on('frame', (data) => {
+    document.getElementById('stream').src = 'data:image/jpeg;base64,' + data;
+  });
+  const img = document.getElementById('stream');
+
+  img.addEventListener('click', e => {
+    // get click position relative to the image
+    const rect = img.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    // normalize to [0,1]
+    const nx = x / rect.width;
+    const ny = y / rect.height;
+    socket.emit('click', { nx, ny });
+  });
+</script>

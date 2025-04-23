@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Scene2d {
     private ArrayList<Object2d> gameObjects;
-    private MyGraphics graphics;
+    private MyGraphics graphics; // MyGraphics Instance From WindowManager
 
     public Scene2d(MyGraphics graphics, ArrayList<Object2d> gameObjects) {
         this.graphics = graphics;
@@ -10,8 +10,8 @@ public class Scene2d {
     }
 
     public void tick() {
-        
         for (Object2d obj : this.gameObjects){
+            System.out.println("Drawing Object");
             obj.tick(this.graphics);
         }
     }

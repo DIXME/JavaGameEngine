@@ -1,7 +1,7 @@
 public class Vec3 {
-    public float x, y, z;
+    public double x, y, z;
 
-    public Vec3( float x, float y, float z) {
+    public Vec3( double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -24,8 +24,8 @@ public class Vec3 {
     }
 
     public Vec2 project(Vec3 angl) {
-        float x = this.x * (float) Math.cos(angl.x) - this.y * (float) Math.sin(angl.x);
-        float y = this.x * (float) Math.sin(angl.x) + this.y * (float) Math.cos(angl.x);
+        double x = this.x * Math.cos(angl.x) - this.y * Math.sin(angl.x);
+        double y = this.x * Math.sin(angl.x) + this.y * Math.cos(angl.x);
         return new Vec2(x, y);
     }
 

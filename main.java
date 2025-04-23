@@ -8,6 +8,7 @@ public class main {
         ArrayList objects = new ArrayList<Object2d>();
         objects.add(box);
         Scene2d scene = new Scene2d(wm.graphics, objects);
+        wm.setScene(scene);
         wm.graphics.draw();
     }
 }

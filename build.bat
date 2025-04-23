@@ -16,7 +16,4 @@ endlocal
 echo Done!
 pause
 cls
-echo Running...
-cd out
-java main
-cd ..
+echo "Would You Like To Run(y/n)? "
