@@ -16,4 +16,3 @@ endlocal
 echo Done!
 pause
 cls
-echo "Would You Like To Run(y/n)? "
