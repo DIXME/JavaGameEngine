@@ -69,7 +69,26 @@ public class x3d {
         return new Vec3(result[0][0], result[1][0], result[2][0]);
     }
 
+    public Vec2 projectPoint(Vec3 point, Camera camera){
+        // 3d prespective projection (3d point => 2d point w/ camera)
+        // 1. Translate the point to the camera's coordinate system
+        Vec3 translatedPoint = point.subtract(camera.pos);
+        // 2. Rotate the point based on camera angles
+        Vec3 rotatedPoint = rotate3d(translatedPoint, camera.viewAngl); // negate
+
+        // 3. Project the point using perspective projection
+        if (rotatedPoint.z <= 0) {
+            return null; // Point is behind the camera
+        }
+
+        // Convert to screen coordinates
+        double x = rotatedPoint.x / rotatedPoint.z;
+        double y = rotatedPoint.y / rotatedPoint.z;
+
+        return new Vec2(x, y);
+    }
+
     public Vec2 projectPoint(Vec3 point){
-        return new Vec2(0d,0d);
+        return new Vec2(0,0);
     }
 }
