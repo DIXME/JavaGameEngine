@@ -19,9 +19,7 @@ public class WindowManager extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); // Call the superclass method to ensure proper rendering
-        if (scene2d != null) {
-            this.scene2d.tick(); // Call the tick method of Scene2d to draw objects
-        }
+        this.scene2d.tick(); // Call the tick method of Scene2d to draw objects
     }
 
     public void setScene(Scene2d scene){

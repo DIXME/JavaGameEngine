@@ -70,6 +70,6 @@ public class x3d {
     }
 
     public Vec2 projectPoint(Vec3 point){
-        
+        return new Vec2(0d,0d);
     }
 }

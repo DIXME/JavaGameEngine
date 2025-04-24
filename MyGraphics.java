@@ -11,7 +11,7 @@ public class MyGraphics {
     }
 
     public void draw() {
-        this.clear(Color.WHITE); // Clear the window with a white background
+        this.clear(Color.BLACK); // Clear the window with a white background
         windowManager.repaint(); // Trigger a repaint to draw the graphics
     }
 

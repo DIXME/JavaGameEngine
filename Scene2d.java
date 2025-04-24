@@ -6,7 +6,7 @@ public class Scene2d {
 
     public Scene2d(MyGraphics graphics, ArrayList<Object2d> gameObjects) {
         this.graphics = graphics;
-        this.gameObjects = new ArrayList<Object2d>();
+        this.gameObjects = gameObjects;
     }
 
     public void tick() {
