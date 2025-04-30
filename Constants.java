@@ -1,6 +1,5 @@
 public class Constants {
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 600;
-    public static final int FPS = 60;
-    public static final int ASPECT_RATIO = 16/10;
+    public static final double friction = 0.9d;
+    public static final double gravity = 0.9d;
+    public static final double conservationOfEnergy = 0.9d;
 }

@@ -1,36 +1,71 @@
 public class Vec3 {
-    public double x, y, z;
-
-    public Vec3( double x, double y, double z) {
+    double x, y, z;
+    
+    public Vec3(double x, double y, double z){
         this.x = x;
         this.y = y;
-        this.z = z;
+        this.y = z;
     }
 
-    public Vec3 add(Vec3 v) {
-        return new Vec3(this.x + v.x, this.y + v.y, this.z + v.z);
+    public Vec3(double b){
+        this.x = b;
+        this.y = b;
+        this.z = b;
     }
 
-    public Vec3 subtract(Vec3 v) {
-        return new Vec3(this.x - v.x, this.y - v.y, this.z - v.z);
+    public Vec3(int b){
+        this.x = (double)b;
+        this.y = (double)b;
+        this.z = (double)b;
+    }
+
+    public Vec3(float b){
+        this.x = (double)b;
+        this.y = (double)b;
+        this.z = (double)b;
     }
     
-    public Vec3 multiply(Vec3 other) {
+    public Vec3 add(Vec3 other){
+        return new Vec3(this.x + other.x, this.y + other.y, this.z + other.z);
+    }
+    
+    public Vec3 sub(Vec3 other){
+        return new Vec3(this.x - other.x, this.y - other.y, this.z - other.z);
+    }
+    
+    public Vec3 mul(Vec3 other){
         return new Vec3(this.x * other.x, this.y * other.y, this.z * other.z);
     }
     
-    public Vec3 divide(Vec3 other) {
+    public Vec3 div(Vec3 other){
         return new Vec3(this.x / other.x, this.y / other.y, this.z / other.z);
     }
-
-    public Vec2 project(Vec3 angl) {
-        double x = this.x * Math.cos(angl.x) - this.y * Math.sin(angl.x);
-        double y = this.x * Math.sin(angl.x) + this.y * Math.cos(angl.x);
-        return new Vec2(x, y);
+    
+    public Vec3 add(double other){
+        return new Vec3(this.x + other, this.y + other, this.z + other);
+    }
+    
+    public Vec3 sub(double other){
+        return new Vec3(this.x - other, this.y - other, this.z - other);
+    }
+    
+    public Vec3 div(double other){
+        return new Vec3(this.x / other, this.y / other, this.z / other);
+    }
+    
+    public Vec3 mul(double other){
+        return new Vec3(this.x * other, this.y * other, this.z * other);
     }
 
-    @Override
-    public String toString(){
-        return "(" + this.x + ", " + this.y + ", " + this.z + ")";
+    public Vec3 fromDouble(double other){
+        return new Vec3(other,other,other);
+    }
+
+    public Vec3 fromInt(int x){
+        return new Vec3((double)x, (double)x, (double)x);
+    }
+
+    public Vec3 fromFloat(float x){
+        return new Vec3((double)x, (double)x, (double)x);
     }
 }

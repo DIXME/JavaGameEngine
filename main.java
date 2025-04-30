@@ -1,14 +1,19 @@
 import java.awt.Color;
-import java.util.ArrayList;
+import java.awt.Graphics;
+
+import javax.swing.*;
 
 public class main {
-    public static void main(String[] args){
-        WindowManager wm = new WindowManager("Window Title", 800, 800);
-        Rect2d box = new Rect2d(new Vec2(25d,25d), new Vec2(50d,50d), Color.WHITE);
-        ArrayList objects = new ArrayList<Object2d>();
-        objects.add(box);
-        Scene2d scene = new Scene2d(wm.graphics, objects);
-        wm.setScene(scene);
-        wm.graphics.draw();
+    public static void main(String[] args) {
+        //creating instance of JFrame
+        JFrame frame = new JFrame("My First Window");
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+        Graphics g = frame.getGraphics();
+        g.setColor(new Color(255,35,35));
+        g.drawRect(0, 0, 50, 50);
+        frame.repaint();
     }
 }
